@@ -1,5 +1,7 @@
 package problem;
 
+import search.Solution;
+
 public class Problem2048 extends Problem {
 	
 	int goalNumber;
@@ -36,6 +38,17 @@ public class Problem2048 extends Problem {
 			n >>= 1;
 		}
 		return cost;
+	}
+	
+	public Solution search(State init, int goalN, String strategy, boolean visualize) {
+		switch (strategy) {
+		//TODO: the rest of the cases
+		case "BF":
+			//BFSSearch bfs = new BFSSearch();
+			//bfs.search(init, goalN);
+		}
+		//TODO: return a solution
+		return null;
 	}
 
 }
