@@ -1,8 +1,7 @@
-package grid;
+package problem;
 
 import java.util.Random;
 
-import problem.Operators;
 
 public class Grid {
 	
@@ -20,13 +19,23 @@ public class Grid {
 	}
 	
 	// TODO Finish function move
-	public void move(Operators op) {
-		switch(op) {
+	public void move(Operators2048 op) {
+		switch(op.operators) {
 		case UP:
 		case DOWN:
 		case RIGHT:
 		case LEFT:
 		}
+	}
+	
+	public boolean isGoal(int goalNumber) {
+		for (int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid[i].length; j++) {
+				if (grid[i][j] == goalNumber)
+					return true;
+			}
+		}
+		return false;
 	}
 
 }
