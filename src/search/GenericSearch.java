@@ -4,6 +4,10 @@ import java.util.Collection;
 import problem.State;
 public abstract class GenericSearch {
 
+	/*
+	 * This collection will be instantiated using either queue/stack/priority queue, in the different 
+	 * classes for the search strategies.
+	 */
 	Collection<SearchTreeNode> queue;
 	
 	public Solution search(State state, int goalN) {
