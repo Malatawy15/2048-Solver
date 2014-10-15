@@ -6,7 +6,7 @@ public class State2048 extends State {
 	
 	public State2048() {
 		super();
-		grid = new Grid();
+		grid = new Grid(4);
 		score = 0;
 	}
 	

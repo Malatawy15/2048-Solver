@@ -6,4 +6,8 @@ public abstract class State {
 	public State() {
 		isGoal = false;
 	}
+	
+	public boolean isGoal() {
+		return isGoal;
+	}
 }

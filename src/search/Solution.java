@@ -1,7 +1,7 @@
 package search;
 
 public class Solution {
-	
+
 	SearchTreeNode goalNode;
 	int cost;
 	int numNodes;
@@ -11,5 +11,4 @@ public class Solution {
 		this.cost = cost;
 		this.numNodes = numNodes;
 	}
-
 }
