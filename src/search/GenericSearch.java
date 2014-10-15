@@ -13,10 +13,12 @@ public abstract class GenericSearch {
 	 * classes for the search strategies.
 	 */
 	Collection<SearchTreeNode> queue;
+	int numNodes;
 	
 	public GenericSearch(Problem problem, Collection<SearchTreeNode> queue){
 		this.problem = problem;
 		this.queue = queue;
+		numNodes = 0;
 	}
 	
 	// TODO Fill in those methods to calculate a SearchTreeNode's attributes.
@@ -37,16 +39,15 @@ public abstract class GenericSearch {
 	}
 	
 	public Solution search(State state, int goalN) {
-		//TODO apply all operators to init, using the queuing function, applying the goal test
-		// to every node. When goal test succeds, create a solution object.
 		SearchTreeNode init = createSearchTreeNode(state);
 		queue.add(init);
 		while(!queue.isEmpty()) {
 			SearchTreeNode node = dequeue();
 			if (node.state.isGoal()) {
-				// TODO create solution and return it.
+				return new Solution(node, problem.pathCost(node.state), numNodes);
 			}
 			// Expand node and add all its children to the queue.
+			numNodes++;
 			Collection<SearchTreeNode> childrenNodes = createSearchTreeNodes(node.state, node.state.getChildrenStates(problem));
 			for (SearchTreeNode childNode : childrenNodes) {
 				enqueue(childNode);

@@ -20,11 +20,17 @@ public class State2048 extends State {
 	public void setAsGoalState() {
 		isGoal = true;
 	}
+	
+	public void setScore(int score) {
+		this.score = score;
+	}
 
 	public List<State> getChildrenStates(Problem problem) {
 		ArrayList<State> children = new ArrayList<State>();
 		for (problem.Operators2048.Operators op : Operators2048.Operators.values()) {
-			children.add(new State2048(this.grid.move(op)));
+			State2048 newState = new State2048(this.grid.move(op));
+			newState.setScore(problem.pathCost(newState));
+			children.add(newState);
 		}
 		return children;
 	}

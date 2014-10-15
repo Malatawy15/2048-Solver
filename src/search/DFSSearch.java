@@ -11,10 +11,9 @@ public class DFSSearch extends GenericSearch{
 		super(problem, new Stack<SearchTreeNode>());
 	}
 	
-	public Collection<SearchTreeNode> enqueue(SearchTreeNode s) {
+	public void enqueue(SearchTreeNode s) {
 		Stack<SearchTreeNode> st = (Stack<SearchTreeNode>) queue;
 		st.push(s);
-		return st;
 	}
 
 	public SearchTreeNode dequeue() {

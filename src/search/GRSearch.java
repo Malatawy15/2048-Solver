@@ -20,10 +20,9 @@ public class GRSearch extends GenericSearch{
 	}
 
 	@Override
-	public Collection<SearchTreeNode> enqueue(SearchTreeNode s) {
+	public void enqueue(SearchTreeNode s) {
 		PriorityQueue<SearchTreeNode> p = (PriorityQueue<SearchTreeNode>) queue;
 		p.add(s);
-		return p;
 	}
 
 	@Override

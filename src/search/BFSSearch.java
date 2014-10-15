@@ -12,10 +12,9 @@ public class BFSSearch extends GenericSearch{
 	}
 
 	@Override
-	public Collection<SearchTreeNode> enqueue(SearchTreeNode s) {
+	public void enqueue(SearchTreeNode s) {
 		LinkedList<SearchTreeNode> q = (LinkedList<SearchTreeNode>) queue;
 		q.addLast(s);
-		return q;
 	}
 
 	@Override
