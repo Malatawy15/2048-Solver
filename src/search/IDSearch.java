@@ -7,19 +7,18 @@ import problem.Problem;
 
 public class IDSearch extends GenericSearch{
 	
-	public IDSearch(Problem problem, int heuristic){
-		super(problem, new PriorityQueue<SearchTreeNode>());
+	public IDSearch(Problem problem){
+		super(problem, new Stack<SearchTreeNode>());
 	}
 	
-	public Collection<SearchTreeNode> enqueue(SearchTreeNode s) {
-		PriorityQueue<SearchTreeNode> p = (PriorityQueue<SearchTreeNode>) queue;
-		p.add(s);
-		return p;
+	public void enqueue(SearchTreeNode s) {
+		Stack<SearchTreeNode> p = (Stack<SearchTreeNode>) queue;
+		p.push(s);
 	}
 
 	public SearchTreeNode dequeue() {
-		PriorityQueue<SearchTreeNode> p = (PriorityQueue<SearchTreeNode>) queue;
-		return p.remove();
+		Stack<SearchTreeNode> p = (Stack<SearchTreeNode>) queue;
+		return p.pop();
 	}
 
 }

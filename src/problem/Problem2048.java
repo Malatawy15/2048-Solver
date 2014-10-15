@@ -20,7 +20,7 @@ public class Problem2048 extends Problem {
 		return state2048.grid.isGoal(goalNumber);
 	}
 
-	public int pathCost(State parentState, State childState) {
+	public int pathCost(State childState) {
 		State2048 childSt = (State2048) childState;
 		int cost = 0;
 		for (int i = 0; i < childSt.grid.grid.length; i++) {
@@ -30,7 +30,11 @@ public class Problem2048 extends Problem {
 		}
 		return cost;
 	}
-	
+
+	public int edgeCost(State parentState, State childState) {
+		return pathCost(childState) - pathCost(parentState);
+	}
+
 	private int blockCost(int n) {
 		int cost = 0;
 		while(n > 2) {
@@ -58,8 +62,11 @@ public class Problem2048 extends Problem {
 		case "GR2":
 			searcher = new GRSearch(this, 2);
 			break;
-		case "ID1":
-			searcher = new IDSearch(this, 1);
+		case "AS1":
+			searcher = new ASSearch(this, 1);
+			break;
+		case "AS2":
+			searcher = new ASSearch(this, 2);
 			break;
 			
 		}
