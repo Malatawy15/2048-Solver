@@ -70,9 +70,9 @@ public class Grid {
 							grid[k][i] = grid[k + 1][i];
 							grid[k + 1][i] = 0;
 							moved = true;
-							if (newVal[k - 1]) {
+							if (newVal[k + 1]) {
 								newVal[k] = true;
-								newVal[k - 1] = false;
+								newVal[k + 1] = false;
 							}
 						} else if (grid[k][i] == grid[k + 1][i]) {
 							if (!newVal[k] && !newVal[k + 1]) {
