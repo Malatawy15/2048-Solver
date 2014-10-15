@@ -14,6 +14,11 @@ public abstract class GenericSearch {
 	 */
 	Collection<SearchTreeNode> queue;
 	
+	public GenericSearch(Problem problem, Collection<SearchTreeNode> queue){
+		this.problem = problem;
+		this.queue = queue;
+	}
+	
 	// TODO Fill in those methods to calculate a SearchTreeNode's attributes.
 	public SearchTreeNode createSearchTreeNode(State state) {
 		return new SearchTreeNode(state);
@@ -51,7 +56,7 @@ public abstract class GenericSearch {
 		return null;
 	}
 	
-	public abstract void enqueue(SearchTreeNode s);
+	public abstract void enqueue(SearchTreeNode node);
 	
 	public abstract SearchTreeNode dequeue();
 	
