@@ -21,8 +21,23 @@ public class Grid {
 		col = rand.nextInt(size);
 		grid[row][col] = 2;
 	}
+	
+	public Grid copyGrid() {
+		try {
+			return (Grid) this.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public Grid move(Operators2048.Operators op) {
+		Grid newGrid = this.copyGrid();
+		newGrid.applyMove(op);
+		return newGrid;
+	}
 
-	public void move(Operators2048.Operators op) {
+	public void applyMove(Operators2048.Operators op) {
 		boolean moved = false;
 		switch (op) {
 		case UP:

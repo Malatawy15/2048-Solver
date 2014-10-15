@@ -1,5 +1,8 @@
 package problem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class State2048 extends State {
 	int score;
 	Grid grid;
@@ -10,12 +13,20 @@ public class State2048 extends State {
 		score = 0;
 	}
 	
-	public State2048(Grid grid, int score) {
+	public State2048(Grid grid) {
 		this.grid = grid;
-		this.score = score;
 	}
 	
 	public void setAsGoalState() {
 		isGoal = true;
 	}
+
+	public List<State> getChildrenStates(Problem problem) {
+		ArrayList<State> children = new ArrayList<State>();
+		for (problem.Operators2048.Operators op : Operators2048.Operators.values()) {
+			children.add(new State2048(this.grid.move(op)));
+		}
+		return children;
+	}
+
 }
