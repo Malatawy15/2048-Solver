@@ -49,8 +49,17 @@ public class Problem2048 extends Problem {
 		case "BF":
 			searcher = new BFSSearch(this);
 			break;
-		case "ID"
+		case "ID":
 			searcher = new IDSearch(this);
+			break;
+		case "GR1":
+			searcher = new GRSearch(this, 1);
+			break;
+		case "GR2":
+			searcher = new GRSearch(this, 2);
+			break;
+		case "ID1":
+			searcher = new IDSearch(this, 1);
 			break;
 			
 		}

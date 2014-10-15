@@ -1,24 +1,25 @@
 package search;
 import java.util.Collection;
+import java.util.PriorityQueue;
 import java.util.Stack;
 
 import problem.Problem;
 
 public class IDSearch extends GenericSearch{
 	
-	public IDSearch(Problem problem){
-		super(problem, new Stack<SearchTreeNode>());
+	public IDSearch(Problem problem, int heuristic){
+		super(problem, new PriorityQueue<SearchTreeNode>());
 	}
 	
 	public Collection<SearchTreeNode> enqueue(SearchTreeNode s) {
-		Stack<SearchTreeNode> st = (Stack<SearchTreeNode>) queue;
-		st.push(s);
-		return st;
+		PriorityQueue<SearchTreeNode> p = (PriorityQueue<SearchTreeNode>) queue;
+		p.add(s);
+		return p;
 	}
 
 	public SearchTreeNode dequeue() {
-		Stack<SearchTreeNode> st = (Stack<SearchTreeNode>) queue;
-		return st.pop();
+		PriorityQueue<SearchTreeNode> p = (PriorityQueue<SearchTreeNode>) queue;
+		return p.remove();
 	}
 
 }
