@@ -43,7 +43,8 @@ public abstract class GenericSearch {
 		queue.add(init);
 		while(!queue.isEmpty()) {
 			SearchTreeNode node = dequeue();
-			if (node.state.isGoal()) {
+			// TODO Figure out a way to get the goal number here.
+			if (node.state.isGoal(4)) {
 				return new Solution(node, problem.pathCost(node.state), numNodes);
 			}
 			// Expand node and add all its children to the queue.

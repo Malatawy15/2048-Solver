@@ -11,7 +11,5 @@ public abstract class State {
 	
 	public abstract List<State> getChildrenStates(Problem problem);
 	
-	public boolean isGoal() {
-		return isGoal;
-	}
+	public abstract boolean isGoal(int goalNumber);
 }

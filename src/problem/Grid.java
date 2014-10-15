@@ -23,12 +23,13 @@ public class Grid {
 	}
 	
 	public Grid copyGrid() {
-		try {
-			return (Grid) this.clone();
-		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
-			return null;
+		Grid newGrid = new Grid(size);
+		for (int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid[i].length; j++) {
+				newGrid.grid[i][j] = grid[i][j];
+			}
 		}
+		return newGrid;
 	}
 	
 	public Grid move(Operators2048.Operators op) {

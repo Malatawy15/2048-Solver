@@ -44,6 +44,11 @@ public class Problem2048 extends Problem {
 		return cost;
 	}
 	
+	public Solution solve(String strategy, boolean visualize) {
+		State state = new State2048(new Grid(4));
+		return search(state, goalNumber, strategy, visualize);
+	}
+	
 	public Solution search(State init, int goalN, String strategy, boolean visualize) {
 		GenericSearch searcher = null;
 		switch (strategy) {
@@ -70,9 +75,7 @@ public class Problem2048 extends Problem {
 			break;
 			
 		}
-		searcher.search(init, goalN);
-		//TODO: return a solution
-		return null;
+		return searcher.search(init, goalN);
 	}
 
 }

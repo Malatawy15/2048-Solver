@@ -35,4 +35,16 @@ public class State2048 extends State {
 		return children;
 	}
 
+	public Grid getGrid() {
+		return grid;
+	}
+
+	public void setGrid(Grid grid) {
+		this.grid = grid;
+	}
+
+	public boolean isGoal(int goalNumber) {
+		return grid.isGoal(goalNumber);
+	}
+
 }
