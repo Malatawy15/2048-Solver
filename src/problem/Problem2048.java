@@ -1,6 +1,6 @@
 package problem;
 
-import search.Solution;
+import search.*;
 
 public class Problem2048 extends Problem {
 	
@@ -41,12 +41,20 @@ public class Problem2048 extends Problem {
 	}
 	
 	public Solution search(State init, int goalN, String strategy, boolean visualize) {
+		GenericSearch searcher = null;
 		switch (strategy) {
-		//TODO: the rest of the cases
+		case "DF":
+			searcher = new DFSSearch(this);
+			break;
 		case "BF":
-			//BFSSearch bfs = new BFSSearch();
-			//bfs.search(init, goalN);
+			searcher = new BFSSearch(this);
+			break;
+		case "ID"
+			searcher = new IDSearch(this);
+			break;
+			
 		}
+		searcher.search(init, goalN);
 		//TODO: return a solution
 		return null;
 	}

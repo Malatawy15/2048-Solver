@@ -13,6 +13,11 @@ public abstract class GenericSearch {
 	 */
 	Collection<SearchTreeNode> queue;
 	
+	public GenericSearch(Problem problem, Collection<SearchTreeNode> queue){
+		this.problem = problem;
+		this.queue = queue;
+	}
+	
 	public Solution search(State state, int goalN) {
 		//TODO apply all operators to init, using the queuing function, applying the goal test
 		// to every node. When goal test succeds, create a solution object.
@@ -29,7 +34,7 @@ public abstract class GenericSearch {
 		return null;		
 	}
 	
-	public abstract Collection<SearchTreeNode> enqueue();
+	public abstract Collection<SearchTreeNode> enqueue(SearchTreeNode s);
 	
 	public abstract SearchTreeNode dequeue();
 	
