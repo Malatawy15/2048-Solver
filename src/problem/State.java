@@ -14,6 +14,8 @@ public abstract class State {
 		return operator;
 	}
 	
+	public abstract int getHeuristic1();
+	
 	public abstract List<State> getChildrenStates(Problem problem);
 	
 	public abstract boolean isGoal();

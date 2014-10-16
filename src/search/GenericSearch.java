@@ -32,6 +32,7 @@ public abstract class GenericSearch {
 		this.problem = problem;
 		this.visualize = visualize;
 		numNodes = 0;
+		visitedStates = new HashSet<String>();
 	}
 
 	public void setQueue(Collection<SearchTreeNode> queue) {
@@ -73,6 +74,7 @@ public abstract class GenericSearch {
 			}
 			// Expand node and add all its children to the queue.
 			numNodes++;
+			System.out.println(visitedStates == null);
 			visitedStates.add(node.getState().toString());
 			Collection<SearchTreeNode> childrenNodes = createSearchTreeNodes(
 					node, node.state.getChildrenStates(problem));

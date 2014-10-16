@@ -33,6 +33,10 @@ public class State2048 extends State {
 		}
 		return children;
 	}
+	
+	public int getHeuristic1(){
+		return grid.getMaxCorner();
+	}
 
 	public Grid getGrid() {
 		return grid;
