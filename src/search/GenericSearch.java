@@ -69,7 +69,6 @@ public abstract class GenericSearch {
 			}
 			// Expand node and add all its children to the queue.
 			numNodes++;
-			System.out.println(visitedStates == null);
 			visitedStates.add(node.getState().toString());
 			Collection<SearchTreeNode> childrenNodes = createSearchTreeNodes(
 					node, node.state.getChildrenStates(problem));
