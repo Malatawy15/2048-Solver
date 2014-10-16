@@ -77,6 +77,10 @@ public abstract class GenericSearch {
 		}
 		return null;
 	}
+	
+	public void resetVisited() {
+		visitedStates.clear();
+	}
 
 	public abstract void enqueue(SearchTreeNode node);
 

@@ -24,6 +24,7 @@ public class IDSearch extends GenericSearch{
 		Stack<SearchTreeNode> p = (Stack<SearchTreeNode>) queue;
 		SearchTreeNode s = p.pop();
 		if (p.isEmpty()) {
+			resetVisited();
 			depthLimitedSearch = new DLSearch(problem, ++depth, (Stack<SearchTreeNode>) queue);
 			depthLimitedSearch.enqueue(createSearchTreeNode(problem.getInitialState(), null, 0, 0));
 		}
