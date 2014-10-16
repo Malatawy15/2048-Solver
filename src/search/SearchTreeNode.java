@@ -7,15 +7,28 @@ public class SearchTreeNode {
 	// 5azoo2 el design
 	State state;
 	SearchTreeNode parent;
-	// Operator operator;
+	Operators operator;
 	int depth;
 	int pathCost;
 	
 	public SearchTreeNode(State state, SearchTreeNode parent, int depth, int pathCost){
 		this.state = state;
 		this.parent = parent;
+		this.operator = state.getOperator();
 		this.depth = depth;
 		this.pathCost = pathCost;
+	}
+	
+	public String returnPath() {
+		if (parent != null) {
+			return String.format("%s -> %s", parent.returnPath(), operator.toString());
+		} else {
+			if (operator == null) {
+				return "Init";
+			} else {
+				return operator.toString();
+			}
+		}
 	}
 
 	public State getState() {
@@ -52,7 +65,7 @@ public class SearchTreeNode {
 	
 	@Override
 	public String toString() {
-		return String.format("Node:\nDepth: %d\tScore: %d\n%s\n\n", depth, pathCost, state.toString());
+		return String.format("Node:\nDepth: %d\tScore: %d\n%s\n", depth, pathCost, state.toString());
 	}
 	
 }

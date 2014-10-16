@@ -7,12 +7,12 @@ public class Problem2048 extends Problem {
 	int goalNumber;
 	
 	public Problem2048(int M) {
-		super(new Operators2048(), genGrid((1<<M)));
+		super(Operators2048.values(), genGrid((1<<M)));
 		goalNumber = (1<<M);
 	}
 
 	private static State2048 genGrid(int goalNumber) {
-		return new State2048(new Grid(4, goalNumber));
+		return new State2048(new Grid(4, goalNumber), null);
 	}
 
 	public boolean goalTest(State state) {
@@ -47,8 +47,7 @@ public class Problem2048 extends Problem {
 	}
 	
 	public Solution solve(String strategy, boolean visualize) {
-		State state = new State2048(new Grid(4, goalNumber));
-		return search(state, goalNumber, strategy, visualize);
+		return search(initialState, goalNumber, strategy, visualize);
 	}
 	
 	public Solution search(State init, int goalN, String strategy, boolean visualize) {
