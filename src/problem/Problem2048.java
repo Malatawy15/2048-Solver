@@ -7,17 +7,17 @@ public class Problem2048 extends Problem {
 	int goalNumber;
 	
 	public Problem2048(int M) {
-		super(new Operators2048(), genGrid());
+		super(new Operators2048(), genGrid((1<<M)));
 		goalNumber = (1<<M);
 	}
 
-	private static State2048 genGrid() {
-		return new State2048();
+	private static State2048 genGrid(int goalNumber) {
+		return new State2048(new Grid(4, goalNumber));
 	}
 
 	public boolean goalTest(State state) {
 		State2048 state2048 = (State2048) state;
-		return state2048.grid.isGoal(goalNumber);
+		return state2048.grid.isGoal();
 	}
 
 	public int pathCost(State childState) {
@@ -34,7 +34,8 @@ public class Problem2048 extends Problem {
 	public int edgeCost(State parentState, State childState) {
 		return pathCost(childState) - pathCost(parentState);
 	}
-
+	
+	//TODO fix this function
 	private int blockCost(int n) {
 		int cost = 0;
 		while(n > 2) {
@@ -45,7 +46,7 @@ public class Problem2048 extends Problem {
 	}
 	
 	public Solution solve(String strategy, boolean visualize) {
-		State state = new State2048(new Grid(4));
+		State state = new State2048(new Grid(4, goalNumber));
 		return search(state, goalNumber, strategy, visualize);
 	}
 	

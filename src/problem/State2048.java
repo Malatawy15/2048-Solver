@@ -7,14 +7,10 @@ public class State2048 extends State {
 	int score;
 	Grid grid;
 	
-	public State2048() {
-		super();
-		grid = new Grid(4);
-		score = 0;
-	}
-	
 	public State2048(Grid grid) {
+		super();
 		this.grid = grid;
+		this.score = 0;
 	}
 	
 	public void setAsGoalState() {
@@ -43,8 +39,8 @@ public class State2048 extends State {
 		this.grid = grid;
 	}
 
-	public boolean isGoal(int goalNumber) {
-		return grid.isGoal(goalNumber);
+	public boolean isGoal() {
+		return grid.isGoal();
 	}
 
 }

@@ -9,8 +9,9 @@ public class Grid {
 
 	int[][] grid;
 	int size;
+	int goal;
 
-	public Grid(int size) {
+	public Grid(int size, int goal) {
 		grid = new int[size][size];
 		this.size = size;
 		Random rand = new Random();
@@ -20,10 +21,11 @@ public class Grid {
 		row = rand.nextInt(size);
 		col = rand.nextInt(size);
 		grid[row][col] = 2;
+		this.goal = goal;
 	}
 	
 	public Grid copyGrid() {
-		Grid newGrid = new Grid(size);
+		Grid newGrid = new Grid(size, goal);
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[i].length; j++) {
 				newGrid.grid[i][j] = grid[i][j];
@@ -202,10 +204,10 @@ public class Grid {
 		}
 	}
 
-	public boolean isGoal(int goalNumber) {
+	public boolean isGoal() {
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[i].length; j++) {
-				if (grid[i][j] == goalNumber)
+				if (grid[i][j] == goal)
 					return true;
 			}
 		}
@@ -222,7 +224,7 @@ public class Grid {
 	}
 
 	public static void main(String[] args) throws IOException {
-		Grid g = new Grid(4);
+		Grid g = new Grid(4, 2048);
 		g.printGrid();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String s;
