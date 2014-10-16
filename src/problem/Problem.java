@@ -19,5 +19,9 @@ public abstract class Problem {
 	public abstract int pathCost(State childState);
 	
 	public abstract int edgeCost(State parentState, State childState);
+
+	public State getInitialState() {
+		return initialState;
+	}
 	
 }

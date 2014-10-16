@@ -7,18 +7,27 @@ import problem.Problem;
 
 public class IDSearch extends GenericSearch{
 	
+	DLSearch depthLimitedSearch;
+	int depth;
+	
 	public IDSearch(Problem problem){
 		super(problem, new Stack<SearchTreeNode>());
+		depth = 0;
+		depthLimitedSearch = new DLSearch(problem, depth);
 	}
 	
 	public void enqueue(SearchTreeNode s) {
-		Stack<SearchTreeNode> p = (Stack<SearchTreeNode>) queue;
-		p.push(s);
+		depthLimitedSearch.enqueue(s);
 	}
 
 	public SearchTreeNode dequeue() {
 		Stack<SearchTreeNode> p = (Stack<SearchTreeNode>) queue;
-		return p.pop();
+		SearchTreeNode s = p.pop();
+		if (p.isEmpty()) {
+			depthLimitedSearch = new DLSearch(problem, depth++);
+			depthLimitedSearch.enqueue(createSearchTreeNode(problem.getInitialState(), null, 0, 0));
+		}
+		return s;
 	}
 
 }

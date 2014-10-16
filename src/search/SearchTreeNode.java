@@ -4,7 +4,7 @@ import problem.State;
 public class SearchTreeNode {
 
 	//TODO: Need to find a way to reference the operator
-	//Suggestion: use list rather than enum
+	// 5azoo2 el design
 	State state;
 	SearchTreeNode parent;
 	// Operator operator;
