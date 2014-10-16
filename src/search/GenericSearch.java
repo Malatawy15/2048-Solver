@@ -51,8 +51,6 @@ public abstract class GenericSearch {
 		for (State childState : childrenStates) {
 			if (!visitedStates.contains(childState.toString())) {
 				childNodes.add(createSearchTreeNode(childState, parentNode));
-			} else {
-				System.out.println("Visited");
 			}
 		}
 		return childNodes;
