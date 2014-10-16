@@ -8,9 +8,10 @@ import problem.Problem;
 public class DLSearch extends GenericSearch {
 	
 	int depthLimit;
+	Stack<SearchTreeNode> stack;
 
-	public DLSearch(Problem problem, int depthLimit) {
-		super(problem, new Stack<SearchTreeNode>());
+	public DLSearch(Problem problem, int depthLimit, Stack<SearchTreeNode> stack) {
+		super(problem, stack);
 		this.depthLimit = depthLimit;
 	}
 

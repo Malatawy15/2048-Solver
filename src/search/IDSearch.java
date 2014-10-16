@@ -13,7 +13,7 @@ public class IDSearch extends GenericSearch{
 	public IDSearch(Problem problem){
 		super(problem, new Stack<SearchTreeNode>());
 		depth = 0;
-		depthLimitedSearch = new DLSearch(problem, depth);
+		depthLimitedSearch = new DLSearch(problem, depth, (Stack<SearchTreeNode>) queue);
 	}
 	
 	public void enqueue(SearchTreeNode s) {
@@ -24,7 +24,7 @@ public class IDSearch extends GenericSearch{
 		Stack<SearchTreeNode> p = (Stack<SearchTreeNode>) queue;
 		SearchTreeNode s = p.pop();
 		if (p.isEmpty()) {
-			depthLimitedSearch = new DLSearch(problem, depth++);
+			depthLimitedSearch = new DLSearch(problem, ++depth, (Stack<SearchTreeNode>) queue);
 			depthLimitedSearch.enqueue(createSearchTreeNode(problem.getInitialState(), null, 0, 0));
 		}
 		return s;
