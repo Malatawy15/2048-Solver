@@ -61,7 +61,7 @@ public abstract class GenericSearch {
 		queue.add(init);
 		while (!queue.isEmpty()) {
 			SearchTreeNode node = dequeue();
-			//System.out.println(node.toString());
+			System.out.println(node.toString());
 			if (node.state.isGoal()) {
 				return new Solution(node, problem.pathCost(node.state),
 						numNodes);
@@ -76,6 +76,10 @@ public abstract class GenericSearch {
 			}
 		}
 		return null;
+	}
+	
+	public void resetVisited() {
+		visitedStates.clear();
 	}
 
 	public abstract void enqueue(SearchTreeNode node);
