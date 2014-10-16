@@ -10,11 +10,6 @@ public class GRSearch extends GenericSearch {
 
 	int heuristic;
 
-	/*
-	 * TODO: Set the heuristic method in SearchTreeNode so that the compareTo
-	 * function works according to the correct heuristic.
-	 */
-
 	public GRSearch(Problem problem, int heuristic) {
 		super(problem);
 		this.heuristic = heuristic;
