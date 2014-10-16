@@ -10,10 +10,10 @@ public class IDSearch extends GenericSearch{
 	DLSearch depthLimitedSearch;
 	int depth;
 	
-	public IDSearch(Problem problem){
-		super(problem, new Stack<SearchTreeNode>());
+	public IDSearch(Problem problem, boolean visualize){
+		super(problem, new Stack<SearchTreeNode>(), visualize);
 		depth = 0;
-		depthLimitedSearch = new DLSearch(problem, depth, (Stack<SearchTreeNode>) queue);
+		depthLimitedSearch = new DLSearch(problem, depth, (Stack<SearchTreeNode>) queue, visualize);
 	}
 	
 	public void enqueue(SearchTreeNode s) {
@@ -25,7 +25,7 @@ public class IDSearch extends GenericSearch{
 		SearchTreeNode s = p.pop();
 		if (p.isEmpty()) {
 			resetVisited();
-			depthLimitedSearch = new DLSearch(problem, ++depth, (Stack<SearchTreeNode>) queue);
+			depthLimitedSearch = new DLSearch(problem, ++depth, (Stack<SearchTreeNode>) queue, visualize);
 			depthLimitedSearch.enqueue(createSearchTreeNode(problem.getInitialState(), null, 0, 0));
 		}
 		return s;

@@ -10,8 +10,8 @@ public class DLSearch extends GenericSearch {
 	int depthLimit;
 	Stack<SearchTreeNode> stack;
 
-	public DLSearch(Problem problem, int depthLimit, Stack<SearchTreeNode> stack) {
-		super(problem, stack);
+	public DLSearch(Problem problem, int depthLimit, Stack<SearchTreeNode> stack, boolean visualize) {
+		super(problem, stack, visualize);
 		this.depthLimit = depthLimit;
 	}
 

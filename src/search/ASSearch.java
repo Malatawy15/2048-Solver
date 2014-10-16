@@ -10,8 +10,8 @@ public class ASSearch extends GenericSearch{
 	
 	int heuristic; 
 	
-	public ASSearch(Problem problem, int heuristic){
-		super(problem);
+	public ASSearch(Problem problem, int heuristic, boolean visualize){
+		super(problem, visualize);
 		this.heuristic = heuristic;
 		setQueue(new PriorityQueue<SearchTreeNode>(11, SearchTreeNodeComparator.getComparator(heuristic, true)));
 	}
