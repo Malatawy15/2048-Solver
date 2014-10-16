@@ -224,6 +224,11 @@ public class Grid {
 		}
 		return s;
 	}
+	
+	public int getMaxCorner() {
+		return Math.max(grid[0][0], Math.max(grid[0][size-1], Math.max(grid[size-1][0], 
+				grid[size-1][size-1])));
+	}
 
 	public static void main(String[] args) throws IOException {
 		Grid g = new Grid(4, 2048);
