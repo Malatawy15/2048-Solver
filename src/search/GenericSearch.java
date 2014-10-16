@@ -2,6 +2,7 @@ package search;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 
 import problem.Problem;
 import problem.State;
@@ -15,12 +16,14 @@ public abstract class GenericSearch {
 	 * queue, in the different classes for the search strategies.
 	 */
 	Collection<SearchTreeNode> queue;
+	HashSet<String> visitedStates;
 	int numNodes;
 
 	public GenericSearch(Problem problem, Collection<SearchTreeNode> queue) {
 		this.problem = problem;
 		this.queue = queue;
 		numNodes = 0;
+		visitedStates = new HashSet<String>();
 	}
 	
 	public GenericSearch(Problem problem) {
@@ -46,7 +49,11 @@ public abstract class GenericSearch {
 			Collection<State> childrenStates) {
 		Collection<SearchTreeNode> childNodes = new ArrayList<SearchTreeNode>();
 		for (State childState : childrenStates) {
-			childNodes.add(createSearchTreeNode(childState, parentNode));
+			if (!visitedStates.contains(childState.toString())) {
+				childNodes.add(createSearchTreeNode(childState, parentNode));
+			} else {
+				System.out.println("Visited");
+			}
 		}
 		return childNodes;
 	}
@@ -56,13 +63,14 @@ public abstract class GenericSearch {
 		queue.add(init);
 		while (!queue.isEmpty()) {
 			SearchTreeNode node = dequeue();
-			System.out.println(node.toString());
+			//System.out.println(node.toString());
 			if (node.state.isGoal()) {
 				return new Solution(node, problem.pathCost(node.state),
 						numNodes);
 			}
 			// Expand node and add all its children to the queue.
 			numNodes++;
+			visitedStates.add(node.getState().toString());
 			Collection<SearchTreeNode> childrenNodes = createSearchTreeNodes(
 					node, node.state.getChildrenStates(problem));
 			for (SearchTreeNode childNode : childrenNodes) {

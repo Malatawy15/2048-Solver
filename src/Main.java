@@ -7,8 +7,9 @@ import search.Solution;
 public class Main {
 
 	public static void main(String[] args) {
-		Problem2048 problem = new Problem2048(4);
+		Problem2048 problem = new Problem2048(5);
 		Solution s = problem.solve("BF", true);
+		System.out.println(s.getGoalNode().toString());
 		System.out.println(s.getGoalNode().returnPath());
 		/*Operators op = Operators2048.DOWN;
 		Operators[] op1 = op.getClass().getEnumConstants();
