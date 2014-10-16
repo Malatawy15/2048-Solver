@@ -13,11 +13,11 @@ public class State2048 extends State {
 		this.score = 0;
 		operator = op;
 	}
-	
+
 	public void setAsGoalState() {
 		isGoal = true;
 	}
-	
+
 	public void setScore(int score) {
 		this.score = score;
 	}
@@ -27,7 +27,9 @@ public class State2048 extends State {
 		for (Operators2048 op : Operators2048.values()) {
 			State2048 newState = new State2048(this.grid.move(op), op);
 			newState.setScore(problem.pathCost(newState));
-			children.add(newState);
+			if (!isEqual(newState)) {
+				children.add(newState);
+			}
 		}
 		return children;
 	}
@@ -47,6 +49,11 @@ public class State2048 extends State {
 	@Override
 	public String toString() {
 		return grid.printGrid();
+	}
+
+	public boolean isEqual(State state) {
+		State2048 st = (State2048) state;
+		return grid.isEqual(st.getGrid());
 	}
 
 }

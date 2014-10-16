@@ -17,4 +17,6 @@ public abstract class State {
 	public abstract List<State> getChildrenStates(Problem problem);
 	
 	public abstract boolean isGoal();
+	
+	public abstract boolean isEqual(State state);
 }

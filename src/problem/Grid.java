@@ -248,5 +248,19 @@ public class Grid {
 			g.printGrid();
 		}
 	}
+	
+	public boolean isEqual(Grid g) {
+		if (this.size != g.size) {
+			return false;
+		}
+		for (int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid[i].length; j++) {
+				if (grid[i][j] != g.grid[i][j]) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 
 }
