@@ -13,27 +13,7 @@ public class GRSearch extends GenericSearch {
 	public GRSearch(Problem problem, int heuristic) {
 		super(problem);
 		this.heuristic = heuristic;
-		setQueue(new PriorityQueue<SearchTreeNode>(11, getComparator(heuristic)));
-	}
-
-	private Comparator<SearchTreeNode> getComparator(int heuristic) {
-		if (heuristic == 1) {
-			return new Comparator<SearchTreeNode>() {
-
-				public int compare(SearchTreeNode arg0, SearchTreeNode arg1) {
-					// TODO Greedy heuristic #1
-					return 0;
-				}
-			};
-		} else {
-			return new Comparator<SearchTreeNode>() {
-
-				public int compare(SearchTreeNode arg0, SearchTreeNode arg1) {
-					// TODO Greedy heuristic #2
-					return 0;
-				}
-			};
-		}
+		setQueue(new PriorityQueue<SearchTreeNode>(11, SearchTreeNodeComparator.getComparator(heuristic)));
 	}
 
 	@Override

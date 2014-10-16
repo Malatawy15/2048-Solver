@@ -13,27 +13,7 @@ public class ASSearch extends GenericSearch{
 	public ASSearch(Problem problem, int heuristic){
 		super(problem);
 		this.heuristic = heuristic;
-		setQueue(new PriorityQueue<SearchTreeNode>(11, getComparator(heuristic)));
-	}
-	
-	private Comparator<SearchTreeNode> getComparator(int heuristic) {
-		if (heuristic == 1) {
-			return new Comparator<SearchTreeNode>() {
-
-				public int compare(SearchTreeNode arg0, SearchTreeNode arg1) {
-					// TODO A* heuristic #1 + path cost
-					return 0;
-				}
-			};
-		} else {
-			return new Comparator<SearchTreeNode>() {
-
-				public int compare(SearchTreeNode arg0, SearchTreeNode arg1) {
-					// TODO A* heuristic #2 + path cost
-					return 0;
-				}
-			};
-		}
+		setQueue(new PriorityQueue<SearchTreeNode>(11, SearchTreeNodeComparator.getComparator(heuristic)));
 	}
 
 	@Override
