@@ -35,7 +35,6 @@ public class Problem2048 extends Problem {
 		return pathCost(childState) - pathCost(parentState);
 	}
 	
-	//TODO fix this function
 	private int blockCost(int n) {
 		int cost = 0;
 		int counter = n;
@@ -54,25 +53,25 @@ public class Problem2048 extends Problem {
 		GenericSearch searcher = null;
 		switch (strategy) {
 		case "DF":
-			searcher = new DFSSearch(this);
+			searcher = new DFSSearch(this, visualize);
 			break;
 		case "BF":
-			searcher = new BFSSearch(this);
+			searcher = new BFSSearch(this, visualize);
 			break;
 		case "ID":
-			searcher = new IDSearch(this);
+			searcher = new IDSearch(this, visualize);
 			break;
 		case "GR1":
-			searcher = new GRSearch(this, 1);
+			searcher = new GRSearch(this, 1, visualize);
 			break;
 		case "GR2":
-			searcher = new GRSearch(this, 2);
+			searcher = new GRSearch(this, 2, visualize);
 			break;
 		case "AS1":
-			searcher = new ASSearch(this, 1);
+			searcher = new ASSearch(this, 1, visualize);
 			break;
 		case "AS2":
-			searcher = new ASSearch(this, 2);
+			searcher = new ASSearch(this, 2, visualize);
 			break;
 			
 		}

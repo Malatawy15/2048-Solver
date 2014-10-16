@@ -6,11 +6,11 @@ import java.util.HashSet;
 
 import problem.Problem;
 import problem.State;
-import problem.State2048;
 
 public abstract class GenericSearch {
 
 	Problem problem;
+	boolean visualize;
 	/*
 	 * This collection will be instantiated using either queue/stack/priority
 	 * queue, in the different classes for the search strategies.
@@ -19,15 +19,17 @@ public abstract class GenericSearch {
 	HashSet<String> visitedStates;
 	int numNodes;
 
-	public GenericSearch(Problem problem, Collection<SearchTreeNode> queue) {
+	public GenericSearch(Problem problem, Collection<SearchTreeNode> queue, boolean visualize) {
 		this.problem = problem;
 		this.queue = queue;
+		this.visualize = visualize;
 		numNodes = 0;
 		visitedStates = new HashSet<String>();
 	}
 	
-	public GenericSearch(Problem problem) {
+	public GenericSearch(Problem problem, boolean visualize) {
 		this.problem = problem;
+		this.visualize = visualize;
 		numNodes = 0;
 		visitedStates = new HashSet<String>();
 	}
@@ -62,14 +64,15 @@ public abstract class GenericSearch {
 		queue.add(init);
 		while (!queue.isEmpty()) {
 			SearchTreeNode node = dequeue();
-			System.out.println(node.toString());
+			if (visualize) {
+				System.out.println(node.toString());
+			}
 			if (node.state.isGoal()) {
 				return new Solution(node, problem.pathCost(node.state),
 						numNodes);
 			}
 			// Expand node and add all its children to the queue.
 			numNodes++;
-			System.out.println(visitedStates == null);
 			visitedStates.add(node.getState().toString());
 			Collection<SearchTreeNode> childrenNodes = createSearchTreeNodes(
 					node, node.state.getChildrenStates(problem));

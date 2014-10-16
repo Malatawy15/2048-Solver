@@ -35,7 +35,7 @@ public class State2048 extends State {
 	}
 	
 	public int getHeuristic1(){
-		return grid.getMaxMerge();
+		return grid.getMaxCorner();
 	}
 	
 	public int getHeuristic2(){

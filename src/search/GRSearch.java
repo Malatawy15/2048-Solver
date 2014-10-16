@@ -1,7 +1,5 @@
 package search;
 
-import java.util.Collection;
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 import problem.Problem;
@@ -10,8 +8,8 @@ public class GRSearch extends GenericSearch {
 
 	int heuristic;
 
-	public GRSearch(Problem problem, int heuristic) {
-		super(problem);
+	public GRSearch(Problem problem, int heuristic, boolean visualize) {
+		super(problem, visualize);
 		this.heuristic = heuristic;
 		setQueue(new PriorityQueue<SearchTreeNode>(11, SearchTreeNodeComparator.getComparator(heuristic, true)));
 	}
