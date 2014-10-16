@@ -75,7 +75,6 @@ public abstract class GenericSearch {
 				enqueue(childNode);
 			}
 		}
-		System.out.println(numNodes + " " + queue.size());
 		return null;
 	}
 
