@@ -1,6 +1,7 @@
 package search;
 
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 import problem.Problem;
@@ -8,14 +9,31 @@ import problem.Problem;
 public class ASSearch extends GenericSearch{
 	
 	int heuristic; 
-	/*
-	 * TODO: Set the heuristic method in SearchTreeNode so that the compareTo function works
-	 * according to the correct heuristic.
-	 */
 	
 	public ASSearch(Problem problem, int heuristic){
-		super(problem, new PriorityQueue<SearchTreeNode>());
-		
+		super(problem);
+		this.heuristic = heuristic;
+		setQueue(new PriorityQueue<SearchTreeNode>(11, getComparator(heuristic)));
+	}
+	
+	private Comparator<SearchTreeNode> getComparator(int heuristic) {
+		if (heuristic == 1) {
+			return new Comparator<SearchTreeNode>() {
+
+				public int compare(SearchTreeNode arg0, SearchTreeNode arg1) {
+					// TODO A* heuristic #1
+					return 0;
+				}
+			};
+		} else {
+			return new Comparator<SearchTreeNode>() {
+
+				public int compare(SearchTreeNode arg0, SearchTreeNode arg1) {
+					// TODO A* heuristic #2
+					return 0;
+				}
+			};
+		}
 	}
 
 	@Override

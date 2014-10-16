@@ -21,8 +21,15 @@ public abstract class GenericSearch {
 		this.queue = queue;
 		numNodes = 0;
 	}
+	
+	public GenericSearch(Problem problem) {
+		this.problem = problem;
+		numNodes = 0;
+	}
 
-	// TODO Fill in those methods to calculate a SearchTreeNode's attributes.
+	public void setQueue(Collection<SearchTreeNode> queue) {
+		this.queue = queue;
+	}
 
 	public SearchTreeNode createSearchTreeNode(State state,
 			SearchTreeNode parentNode, int depth, int pathCost) {
