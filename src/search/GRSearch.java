@@ -10,8 +10,8 @@ public class GRSearch extends GenericSearch {
 
 	int heuristic;
 
-	public GRSearch(Problem problem, int heuristic) {
-		super(problem);
+	public GRSearch(Problem problem, int heuristic, boolean visualize) {
+		super(problem, visualize);
 		this.heuristic = heuristic;
 		setQueue(new PriorityQueue<SearchTreeNode>(11, getComparator(heuristic)));
 	}

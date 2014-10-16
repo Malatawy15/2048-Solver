@@ -7,8 +7,8 @@ import problem.Problem;
 
 public class DFSSearch extends GenericSearch{
 	
-	public DFSSearch(Problem problem){
-		super(problem, new Stack<SearchTreeNode>());
+	public DFSSearch(Problem problem, boolean visualize){
+		super(problem, new Stack<SearchTreeNode>(), visualize);
 	}
 	
 	public void enqueue(SearchTreeNode s) {
