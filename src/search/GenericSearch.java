@@ -5,6 +5,7 @@ import java.util.Collection;
 
 import problem.Problem;
 import problem.State;
+import problem.State2048;
 
 public abstract class GenericSearch {
 
@@ -55,6 +56,7 @@ public abstract class GenericSearch {
 		queue.add(init);
 		while (!queue.isEmpty()) {
 			SearchTreeNode node = dequeue();
+			System.out.println(node.toString());
 			if (node.state.isGoal()) {
 				return new Solution(node, problem.pathCost(node.state),
 						numNodes);

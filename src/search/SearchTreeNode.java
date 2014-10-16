@@ -50,4 +50,9 @@ public class SearchTreeNode {
 		this.pathCost = pathCost;
 	}
 	
+	@Override
+	public String toString() {
+		return String.format("Node:\nDepth: %d\tScore: %d\n%s\n\n", depth, pathCost, state.toString());
+	}
+	
 }

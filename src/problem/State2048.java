@@ -42,5 +42,10 @@ public class State2048 extends State {
 	public boolean isGoal() {
 		return grid.isGoal();
 	}
+	
+	@Override
+	public String toString() {
+		return grid.printGrid();
+	}
 
 }

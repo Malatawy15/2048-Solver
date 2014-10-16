@@ -214,13 +214,15 @@ public class Grid {
 		return false;
 	}
 
-	public void printGrid() {
+	public String printGrid() {
+		String s = "";
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[i].length; j++) {
-				System.out.print(grid[i][j] + "\t");
+				s += grid[i][j] + "\t";
 			}
-			System.out.println();
+			s += "\n";
 		}
+		return s;
 	}
 
 	public static void main(String[] args) throws IOException {
