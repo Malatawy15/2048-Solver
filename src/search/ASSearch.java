@@ -21,7 +21,7 @@ public class ASSearch extends GenericSearch{
 			return new Comparator<SearchTreeNode>() {
 
 				public int compare(SearchTreeNode arg0, SearchTreeNode arg1) {
-					// TODO A* heuristic #1
+					// TODO A* heuristic #1 + path cost
 					return 0;
 				}
 			};
@@ -29,7 +29,7 @@ public class ASSearch extends GenericSearch{
 			return new Comparator<SearchTreeNode>() {
 
 				public int compare(SearchTreeNode arg0, SearchTreeNode arg1) {
-					// TODO A* heuristic #2
+					// TODO A* heuristic #2 + path cost
 					return 0;
 				}
 			};
