@@ -4,11 +4,11 @@ import java.util.HashSet;
 
 public abstract class Problem {
 
-	Operators operators;
+	Operators[] operators;
 	State initialState;
 	HashSet<State> stateSpace;
 	
-	public Problem(Operators ops, State init) {
+	public Problem(Operators[] ops, State init) {
 		operators = ops;
 		initialState = init;
 		stateSpace = new HashSet<State>();

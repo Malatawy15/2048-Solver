@@ -7,7 +7,7 @@ public class Problem2048 extends Problem {
 	int goalNumber;
 	
 	public Problem2048(int M) {
-		super(new Operators2048(), genGrid((1<<M)));
+		super(Operators2048.values(), genGrid((1<<M)));
 		goalNumber = (1<<M);
 	}
 
@@ -38,9 +38,10 @@ public class Problem2048 extends Problem {
 	//TODO fix this function
 	private int blockCost(int n) {
 		int cost = 0;
-		while(n > 2) {
+		int counter = n;
+		while(counter > 2) {
 			cost += n;
-			n >>= 1;
+			counter >>= 1;
 		}
 		return cost;
 	}

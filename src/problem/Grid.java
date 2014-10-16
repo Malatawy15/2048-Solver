@@ -34,13 +34,13 @@ public class Grid {
 		return newGrid;
 	}
 	
-	public Grid move(Operators2048.Operators op) {
+	public Grid move(Operators2048 op) {
 		Grid newGrid = this.copyGrid();
 		newGrid.applyMove(op);
 		return newGrid;
 	}
 
-	public void applyMove(Operators2048.Operators op) {
+	public void applyMove(Operators2048 op) {
 		boolean moved = false;
 		switch (op) {
 		case UP:
@@ -214,13 +214,15 @@ public class Grid {
 		return false;
 	}
 
-	public void printGrid() {
+	public String printGrid() {
+		String s = "";
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[i].length; j++) {
-				System.out.print(grid[i][j] + "\t");
+				s += grid[i][j] + "\t";
 			}
-			System.out.println();
+			s += "\n";
 		}
+		return s;
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -231,16 +233,16 @@ public class Grid {
 		while ((s = br.readLine()) != null) {
 			switch (s) {
 			case "w":
-				g.move(Operators2048.Operators.UP);
+				g.move(Operators2048.UP);
 				break;
 			case "s":
-				g.move(Operators2048.Operators.DOWN);
+				g.move(Operators2048.DOWN);
 				break;
 			case "a":
-				g.move(Operators2048.Operators.LEFT);
+				g.move(Operators2048.LEFT);
 				break;
 			case "d":
-				g.move(Operators2048.Operators.RIGHT);
+				g.move(Operators2048.RIGHT);
 				break;
 			}
 			g.printGrid();

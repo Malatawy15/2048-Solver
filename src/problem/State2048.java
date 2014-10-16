@@ -6,13 +6,12 @@ import java.util.List;
 public class State2048 extends State {
 	int score;
 	Grid grid;
-	Operators2048.Operators operator;
-
-	public State2048(Grid grid, Operators2048.Operators operator) {
+	
+	public State2048(Grid grid, Operators op) {
 		super();
 		this.grid = grid;
 		this.score = 0;
-		this.operator = operator;
+		operator = op;
 	}
 
 	public void setAsGoalState() {
@@ -25,8 +24,7 @@ public class State2048 extends State {
 
 	public List<State> getChildrenStates(Problem problem) {
 		ArrayList<State> children = new ArrayList<State>();
-		for (problem.Operators2048.Operators op : Operators2048.Operators
-				.values()) {
+		for (Operators2048 op : Operators2048.values()) {
 			State2048 newState = new State2048(this.grid.move(op), op);
 			newState.setScore(problem.pathCost(newState));
 			if (!isEqual(newState)) {
@@ -46,6 +44,11 @@ public class State2048 extends State {
 
 	public boolean isGoal() {
 		return grid.isGoal();
+	}
+	
+	@Override
+	public String toString() {
+		return grid.printGrid();
 	}
 
 	public boolean isEqual(State state) {
