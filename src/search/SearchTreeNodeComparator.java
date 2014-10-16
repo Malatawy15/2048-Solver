@@ -15,7 +15,7 @@ public class SearchTreeNodeComparator {
 						fn1+= s1.pathCost;
 						fn2+= s2.pathCost;
 					}
-					return fn1 - fn2;
+					return fn2 - fn1;
 				}
 			};
 		} else {

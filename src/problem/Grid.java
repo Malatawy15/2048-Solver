@@ -268,4 +268,49 @@ public class Grid {
 		return true;
 	}
 
+	public int getNumMerges() {
+		int numMerges = 0;
+		int dx[] = {1, 0, -1, 0};
+		int dy[] = {0, 1, 0, -1};
+		for (int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid[i].length; j++) {
+				for (int j2 = 0; j2 < dy.length; j2++) {
+					int nx = i + dx[j2], ny = j + dy[j2];
+					if (nx >=0 && ny >=0 && nx < grid.length && ny < grid[i].length) {
+						if (grid[i][j] == grid[nx][ny] && grid[i][j]!=0) {
+							numMerges++;
+						}
+					}
+				}
+			}
+		}
+		return numMerges;
+	}
+	
+	private int log(int a) {
+		int sum = 0;
+		while (a>0) {
+			sum++;
+			a>>=1;
+		}
+		return sum;
+	}
+	
+	public int getMaxMerge() {
+		int numMerges = 0;
+		int dx[] = {1, 0, -1, 0};
+		int dy[] = {0, 1, 0, -1};
+		int pow = 1;
+		for (int k=1;k<=11;k++) {
+			int sum = 0;
+			pow<<=1;
+			for (int i = 0; i < grid.length; i++) {
+				for (int j = 0; j < grid[i].length; j++) {
+					if (grid[i][j]==pow) sum++;
+				}
+			}
+			numMerges += (sum);
+		}
+		return numMerges;	}
+
 }

@@ -16,6 +16,8 @@ public abstract class State {
 	
 	public abstract int getHeuristic1();
 	
+	public abstract int getHeuristic2();
+	
 	public abstract List<State> getChildrenStates(Problem problem);
 	
 	public abstract boolean isGoal();
