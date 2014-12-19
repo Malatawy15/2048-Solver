@@ -35,7 +35,6 @@ public class Problem2048 extends Problem {
 		return pathCost(childState) - pathCost(parentState);
 	}
 	
-	//TODO fix this function
 	private int blockCost(int n) {
 		int cost = 0;
 		int counter = n;

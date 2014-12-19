@@ -6,7 +6,6 @@ import java.util.HashSet;
 
 import problem.Problem;
 import problem.State;
-import problem.State2048;
 
 public abstract class GenericSearch {
 

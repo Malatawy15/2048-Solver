@@ -1,7 +1,5 @@
 package search;
 
-import java.util.Collection;
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 import problem.Problem;

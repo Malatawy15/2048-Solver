@@ -1,6 +1,5 @@
 package search;
 
-import java.util.Collection;
 import java.util.LinkedList;
 
 import problem.Problem;

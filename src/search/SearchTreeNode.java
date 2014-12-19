@@ -3,8 +3,6 @@ import problem.Operators;
 import problem.State;
 public class SearchTreeNode{
 
-	//TODO: Need to find a way to reference the operator
-	// 5azoo2 el design
 	State state;
 	SearchTreeNode parent;
 	Operators operator;
